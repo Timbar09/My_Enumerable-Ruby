@@ -8,8 +8,14 @@ module Enumerable
 
     def any?(&block)
         result = false
-        each {|e| result = true unless block.call(e)}
+        each {|e| result = true if block.call(e)}
         result
-      end
+    end
+
+    def filter?(&block)
+        result = []
+        each {|e| result << e if block.call(e)}
+        result 
+    end 
 end
 
