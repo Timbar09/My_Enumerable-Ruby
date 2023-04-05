@@ -16,3 +16,11 @@ class MyList
     @list.each(&block)
   end
 end
+
+my_list = MyList.new(1, 2, 3, 4, 5)
+
+puts(my_list.all? { |item| item < 6 }) # true
+
+puts(my_list.any? { |item| item > 3 }) # true
+
+print(my_list.filter? { |item| item > 3 }) # [4, 5]
